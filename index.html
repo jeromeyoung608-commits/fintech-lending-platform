@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, viewport-fit=cover" />
+<meta name="theme-color" content="#0A192F" />
+<title>Ardent Finance — Smart Lending for Growing Businesses</title>
+
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<!-- ============ NAVBAR ============ -->
+<header>
+  <div class="wrap nav">
+    <a class="brand" href="#top"><span class="mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M4 18 L10 8 L14 14 L20 4"/></svg></span>Ardent Finance</a>
+    <nav class="nav-links">
+      <a href="#calculator">Calculator</a>
+      <a href="#products">Products</a>
+      <a href="#how">How it works</a>
+      <a href="#faq">FAQ</a>
+    </nav>
+    <div class="nav-cta">
+      <button class="btn btn-gold" data-apply>Get Started</button>
+      <div class="hamburger" id="burger"><i></i><i></i><i></i></div>
+    </div>
+  </div>
+  <div class="wrap" id="mobileMenu" style="display:none;padding-bottom:16px;">
+    <a href="#calculator" style="display:block;padding:10px 0;color:var(--muted);font-weight:600;">Calculator</a>
+    <a href="#products" style="display:block;padding:10px 0;color:var(--muted);font-weight:600;">Products</a>
+    <a href="#how" style="display:block;padding:10px 0;color:var(--muted);font-weight:600;">How it works</a>
+    <a href="#faq" style="display:block;padding:10px 0;color:var(--muted);font-weight:600;">FAQ</a>
+  </div>
+</header>
+
+<span id="top"></span>
+
+<!-- ============ HERO ============ -->
+<section class="hero">
+  <div class="hero-grid"></div>
+  <div class="glow"></div>
+  <div class="glow2"></div>
+  <div class="wrap hero-inner">
+    <div>
+      <span class="eyebrow">Equipment &amp; working capital</span>
+      <h1>The oven quit <em>the week before Thanksgiving</em>.</h1>
+      <p class="lead">A new deck oven is $14,850 and the bakery opens at 5am. Ardent funds independent shops and clinics. You see the exact repayment before you apply — we read 12 months of bank statements, not your credit score.</p>
+      <div class="hero-cta">
+        <button class="btn btn-gold" data-apply>Get Started</button>
+        <a href="#calculator" class="btn btn-ghost">See your rate</a>
+      </div>
+      <div class="hero-stats">
+        <div class="s"><b>$<span class="cnt" data-to="48.6" data-dec="1" data-suffix="M">0</span></b><small>Funded to date</small></div>
+        <div class="s"><b><span class="cnt" data-to="4.9" data-dec="1">0</span>/5</b><small>Client rating</small></div>
+        <div class="s"><b><span class="cnt" data-to="19" data-suffix="h">0</span></b><small>Avg. approval</small></div>
+      </div>
+    </div>
+    <div style="display:flex;flex-direction:column;gap:14px;">
+      <img class="owner-shot" src="images/paperwork.jpg" alt="A small business owner reviewing invoices and a calculator" style="margin-bottom:0;">
+      <div class="owner-cap" style="text-align:left;margin:0;">November books, a bakery in Portland. This is the paperwork we actually read.</div>
+      <div class="glass">
+        <div class="cardtop"><span><span class="pulse-dot"></span>Pre-approved</span><span>Limit up to $500K</span></div>
+        <div class="big">$<span id="heroAmt">85,000</span> <span>available</span></div>
+        <div class="row"><span>Est. APR</span><b>8.5% fixed</b></div>
+        <div class="row"><span>Term</span><b>24 months</b></div>
+        <div class="row"><span>Est. monthly</span><b id="heroMonthly">$3,872</b></div>
+        <svg class="wave" width="160" height="70" viewBox="0 0 160 70" fill="none">
+          <path d="M0 55 Q20 30 40 45 T80 40 T120 30 T160 38" stroke="#D4AF37" stroke-width="2" opacity=".7"/>
+          <path d="M0 60 Q20 40 40 52 T80 48 T120 40 T160 46" stroke="#16C784" stroke-width="2" opacity=".5"/>
+        </svg>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CALCULATOR ============ -->
+<section class="block" id="calculator">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="eyebrow">Loan Calculator</span>
+      <h2>See your number in real time.</h2>
+      <p>Drag to model your loan. Rates are fixed and transparent — what you see is what you pay.</p>
+    </div>
+    <div class="calc">
+      <div class="calc-panel">
+        <h3>Borrowing details</h3>
+        <div class="sub">Adjust the amount and term — the estimate updates instantly.</div>
+        <div class="slider-row">
+          <div class="lab"><span class="name">Loan amount</span><span class="val" id="amtVal">$85,000</span></div>
+          <input type="range" id="amtRange" min="5000" max="500000" step="1000" value="85000" />
+        </div>
+        <div class="slider-row">
+          <div class="lab"><span class="name">Repayment term</span><span class="val" id="termVal">24 months</span></div>
+          <input type="range" id="termRange" min="6" max="60" step="1" value="24" />
+        </div>
+        <p style="font-size:13px;color:var(--muted);margin-top:8px;">Fixed APR <b style="color:var(--green)">8.5%</b> · No origination fee · No prepayment penalty.</p>
+      </div>
+      <div class="calc-result">
+        <span class="label">Estimated monthly payment</span>
+        <div class="monthly" id="monthly">$3,872 <small>/mo</small></div>
+        <span class="apr"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg>Fixed APR 8.5% · Soft credit check</span>
+        <div class="donut-wrap">
+          <svg class="donut" viewBox="0 0 120 120">
+            <circle cx="60" cy="60" r="50" fill="none" stroke="rgba(255,255,255,.08)" stroke-width="14"/>
+            <circle id="donutPrincipal" cx="60" cy="60" r="50" fill="none" stroke="#D4AF37" stroke-width="14" stroke-linecap="round" transform="rotate(-90 60 60)"/>
+            <circle id="donutInterest" cx="60" cy="60" r="50" fill="none" stroke="#16C784" stroke-width="14" stroke-linecap="round" transform="rotate(-90 60 60)"/>
+            <text x="60" y="56" text-anchor="middle" fill="#fff" font-size="20" font-weight="800" id="donutCenter">$85K</text>
+            <text x="60" y="74" text-anchor="middle" fill="#92A6BC" font-size="10">principal</text>
+          </svg>
+          <div class="donut-leg">
+            <div class="li"><span class="sw" style="background:#D4AF37"></span>Principal <b id="legP">$85,000</b></div>
+            <div class="li"><span class="sw" style="background:#16C784"></span>Interest <b id="legI">$7,928</b></div>
+          </div>
+        </div>
+        <div class="totals"><span>Total repayment</span><b id="total">$92,928</b></div>
+        <button class="btn btn-green apply" id="applyNow" data-apply>Apply Now →</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FEATURES & TRUST ============ -->
+<section class="block" id="features">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="eyebrow">Why Ardent</span>
+      <h2>Bank-grade security. Startup-grade speed.</h2>
+    </div>
+    <div class="feat-grid">
+      <div class="feat">
+        <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M12 3l7 3v6c0 4-3 7-7 9-4-2-7-5-7-9V6z"/><path d="M9 12l2 2 4-4"/></svg></div>
+        <h3>Bank-level security</h3>
+        <p>Your data is protected with 256-bit AES encryption and SOC 2 Type II controls — the same standard as the largest banks.</p>
+      </div>
+      <div class="feat">
+        <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M13 2 4 14h6l-1 8 9-12h-6z"/></svg></div>
+        <h3>Decision by close of business</h3>
+        <p>We read your last 12 months of bank statements. No hard credit pull, no 40-page application. Most decisions land before close of business.</p>
+      </div>
+      <div class="feat">
+        <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M20 6 9 17l-5-5"/></svg></div>
+        <h3>No hidden fees</h3>
+        <p>Zero origination fees, zero prepayment penalties. One transparent fixed rate, shown before you commit to anything.</p>
+      </div>
+    </div>
+
+    <div class="trust">
+      <h3>1,247 loans to bakeries, print shops and dental practices since 2019</h3>
+      <p>Most borrowers have 4–30 staff and a bank that took three weeks to say no.</p>
+      <div class="logos" id="logos"></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ PRODUCTS ============ -->
+<section class="block" id="products">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="eyebrow">Products</span>
+      <h2>Capital that fits how you grow.</h2>
+      <p>Three flexible products, one transparent standard. Pick the structure that matches your cash flow.</p>
+    </div>
+    <div class="prod-grid">
+      <div class="prod">
+        <div class="ptag">Most popular</div>
+        <h3>Business Term Loan</h3>
+        <div class="rate">From 6.9%<small> APR</small></div>
+        <ul>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M20 6 9 17l-5-5"/></svg>$10K – $500K</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M20 6 9 17l-5-5"/></svg>6 – 60 month terms</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M20 6 9 17l-5-5"/></svg>Fixed monthly payments</li>
+        </ul>
+        <button class="btn btn-ghost" style="width:100%;" data-apply>Apply</button>
+      </div>
+      <div class="prod">
+        <div class="ptag">Flexible</div>
+        <h3>Line of Credit</h3>
+        <div class="rate">From 8.5%<small> APR</small></div>
+        <ul>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M20 6 9 17l-5-5"/></svg>Draw only what you need</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M20 6 9 17l-5-5"/></svg>Pay interest on balance</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M20 6 9 17l-5-5"/></svg>Reuse as you repay</li>
+        </ul>
+        <button class="btn btn-ghost" style="width:100%;" data-apply>Apply</button>
+      </div>
+      <div class="prod">
+        <div class="ptag">Asset-based</div>
+        <h3>Equipment Financing</h3>
+        <div class="rate">From 7.9%<small> APR</small></div>
+        <ul>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M20 6 9 17l-5-5"/></svg>$5K – $250K</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M20 6 9 17l-5-5"/></svg>Equipment as collateral</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M20 6 9 17l-5-5"/></svg>Up to 100% financing</li>
+        </ul>
+        <button class="btn btn-ghost" style="width:100%;" data-apply>Apply</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ HOW IT WORKS ============ -->
+<section class="block" id="how">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="eyebrow">How it works</span>
+      <h2>Funded in three steps.</h2>
+    </div>
+    <div class="steps-row">
+      <div class="step"><div class="num">1</div><h3>Apply in minutes</h3><p>A short online form — connect your bank securely, no documents to scan.</p></div>
+      <div class="step"><div class="num">2</div><h3>Get an instant decision</h3><p>AI underwriting returns a transparent offer with your fixed rate, same day.</p></div>
+      <div class="step"><div class="num">3</div><h3>Receive funds fast</h3><p>Accept and funds land in your account as soon as the next business day.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ TESTIMONIALS ============ -->
+<section class="block" id="testimonials">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="eyebrow">Client stories</span>
+      <h2>Founders who funded growth with Ardent.</h2>
+    </div>
+    <div class="t-grid" id="testimonials"></div>
+  </div>
+</section>
+
+<!-- ============ FAQ ============ -->
+<section class="block" id="faq">
+  <div class="wrap">
+    <div class="sec-head" style="text-align:center;margin:0 auto 44px;">
+      <span class="eyebrow">FAQ</span>
+      <h2>Questions, answered.</h2>
+    </div>
+    <div class="faq" id="faqList"></div>
+  </div>
+</section>
+
+<!-- ============ CTA ============ -->
+<section class="cta">
+  <div class="wrap">
+    <h2>Need the oven replaced before Monday?</h2>
+    <p>1,247 loans since 2019. See your repayment before you apply — no hard credit pull, no obligation.</p>
+    <form class="cta-form" id="ctaForm">
+      <input type="email" id="ctaEmail" placeholder="you@company.com" />
+      <button class="btn btn-gold" type="submit">Get Early Access</button>
+    </form>
+  </div>
+</section>
+
+<!-- ============ FOOTER ============ -->
+<footer>
+  <div class="wrap">
+    <div class="foot-top">
+      <div>
+        <a class="brand" href="#top"><span class="mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M4 18 L10 8 L14 14 L20 4"/></svg></span>Ardent Finance</a>
+        <p style="max-width:280px;">Transparent business lending for the companies banks overlook. Funded $50M+ and counting.</p>
+      </div>
+      <div class="foot-cols">
+        <div><h4>Products</h4><a href="#products">Term Loan</a><a href="#products">Line of Credit</a><a href="#products">Equipment</a></div>
+        <div><h4>Company</h4><a href="#how">How it works</a><a href="#faq">FAQ</a><a href="#features">Security</a></div>
+        <div><h4>Legal</h4>
+          <a href="#" data-demo="This is a demo. The Privacy Policy will be provided by the client.">Privacy</a>
+          <a href="#" data-demo="This is a demo. Terms of Service will be provided by the client.">Terms</a>
+          <a href="#" data-demo="This is a demo. Disclosures will be provided by the client.">Disclosures</a>
+        </div>
+      </div>
+    </div>
+    <div class="disclaimer">
+      Ardent Finance is a fictional demonstration brand. All figures, rates, and testimonials are illustrative mock data. In a production deployment, lending is facilitated by partner banks and licensed lenders; Ardent itself is not a bank. Loan approval, rates (APR range 6.9%–29.9%), and terms are subject to creditworthiness and verification. This page does not constitute a credit offer. Equal Credit Opportunity Act: we prohibit discrimination on the basis of race, color, religion, national origin, sex, marital status, age, or receipt of public assistance. NMLS #000000 (illustrative).
+    </div>
+  </div>
+</footer>
+
+<!-- ============ APPLY MODAL ============ -->
+<div class="modal" id="applyModal">
+  <div class="modal-card" style="position:relative;">
+    <span class="modal-close" id="modalClose">×</span>
+    <div id="modalBody">
+      <h3>Apply for funding</h3>
+      <div class="msub">Takes about 3 minutes. Your rate is shown before you commit.</div>
+      <form id="applyForm">
+        <div class="field" id="f-name"><label>Full name</label><input id="aName" placeholder="e.g. Dana Okafor" /><span class="msg">Please enter your name.</span></div>
+        <div class="field" id="f-biz"><label>Business name</label><input id="aBiz" placeholder="e.g. Hearth & Crumb" /><span class="msg">Please enter your business name.</span></div>
+        <div class="field" id="f-email"><label>Work email</label><input id="aEmail" placeholder="you@company.com" /><span class="msg">Please enter a valid email.</span></div>
+        <div class="field" id="f-rev"><label>Annual revenue</label>
+          <select id="aRev"><option value="">Select range</option><option>$0 – $250K</option><option>$250K – $1M</option><option>$1M – $5M</option><option>$5M+</option></select>
+          <span class="msg">Please select a range.</span></div>
+        <div class="field" id="f-use"><label>Use of funds</label>
+          <select id="aUse"><option value="">Select purpose</option><option>Equipment purchase</option><option>Hiring & payroll</option><option>Inventory / stock</option><option>Expansion / new location</option><option>Working capital</option><option>Marketing</option></select>
+          <span class="msg">Please select a purpose.</span></div>
+        <div class="field" id="f-amt"><label>Requested amount</label><input id="aAmt" readonly /><span class="msg"></span></div>
+        <div class="field" id="f-term"><label>Term (months)</label><input id="aTerm" readonly /><span class="msg"></span></div>
+        <button class="btn btn-gold" type="submit" style="width:100%;margin-top:6px;">Submit application</button>
+      </form>
+    </div>
+  </div>
+</div>
+
+<div class="toast" id="toast"></div>
+
+
+<script src="app.js" defer></script>
+</body>
+</html>
